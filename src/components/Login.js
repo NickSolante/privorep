@@ -4,7 +4,7 @@ const mystyle = {
   color: 'black'
 }
 const shadow = {
-  boxShadow: '5px 10px #636C7D'
+  boxShadow: '5px 10px #3B424D'
 }
 
 function Login() {
@@ -15,8 +15,11 @@ function Login() {
           <Card.Title style={mystyle}>Login</Card.Title>
           <Form>
             <Form.Group controlId='formBasicEmail'>
-              <i className='fas fa-envelope'></i>
-              <Form.Control type='email' placeholder='Email Address' />
+              <Form.Control
+                type='email'
+                placeholder='Email Address'
+                icon='fas fa-envelope'
+              />
             </Form.Group>
 
             <Form.Group controlId='formBasicPassword'>
