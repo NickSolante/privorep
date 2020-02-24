@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import * as AuthActions from '../actions/auth'
 import Login from '../components/Login'
 
-function Auth({ login }) {
+function Auth({ login, getAuthToken }) {
   return (
     <div className='App'>
       <header className='App-header'>
-        <Login className='mt-3' login={login} />
+        <Login className='mt-3' login={login} getAuthToken={getAuthToken} />
       </header>
     </div>
   )

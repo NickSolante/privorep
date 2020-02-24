@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button, Card } from 'react-bootstrap'
-import axios from 'axios'
+import { useHistory } from 'react-router-dom'
+
 const mystyle = {
   color: 'black',
   fontFamily: 'Open Sans',
@@ -12,7 +13,7 @@ const shadow = {
   boxShadow: '5px 10px #3B424D '
 }
 
-function Login({ login }) {
+function Login({ login, getAuthToken }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -23,6 +24,7 @@ function Login({ login }) {
   const onChangePassword = e => {
     setPassword(e.target.value)
   }
+  let history = useHistory()
   return (
     <div>
       <Card style={shadow} className='px-5'>
@@ -54,6 +56,10 @@ function Login({ login }) {
               onClick={e => {
                 e.preventDefault()
                 login(email, password)
+                const token = getAuthToken()
+                if (token) {
+                  history.push('/loggedIn')
+                }
               }}
             >
               <strong>LOG IN</strong>
